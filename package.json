@@ -1,0 +1,25 @@
+{
+  "name": "line-adventure",
+  "version": "0.0.1",
+  "description": "Prototype de jeu d'aventure textuel tournant sous NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasBrondin/line-adventure.git"
+  },
+  "keywords": [
+    "jeu",
+    "aventure",
+    "zork",
+    "textuel"
+  ],
+  "author": "Nicolas Brondin-Bernard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicolasBrondin/line-adventure/issues"
+  },
+  "homepage": "https://github.com/NicolasBrondin/line-adventure#readme"
+}
