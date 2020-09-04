@@ -1,6 +1,6 @@
 class Parser {
     constructor(){
-        
+
         this.infinitive_verbs = [
             "prendre",
             "ouvrir",
@@ -51,10 +51,14 @@ class Parser {
         return result ? {type: "preposition", value: result} : null;
     }
 
+    //Take a sentence a return the same sentence tokenized or throw an error
     parseText(str){
+
+        //Initialize the token array and transform the string into an array or words
         let tokens = [];
         let str_array = str.split(' ');
 
+        //Let's build the syntaxic tree, from the longest possibility to the shortest (mandatory)
         let syntaxic_tree = [
             [this.INFINITIVE_VERB.bind(this),this.PREPOSITION.bind(this), this.ARTICLE.bind(this), this.NOUN.bind(this)],
             [this.INFINITIVE_VERB.bind(this),this.ARTICLE.bind(this), this.NOUN.bind(this)],
@@ -62,18 +66,27 @@ class Parser {
             [this.INFINITIVE_VERB.bind(this)]
         ];
 
+        //Let's try every possible sentence form until one succeed
         let success = syntaxic_tree.some(function(syntaxic_branch){
+
+            //Let's copy all the words to avoid reference issues
             let local_str_array = [...str_array];
             let local_tokens = [];
+
+            //For every branch item, let's check if the next word (of first) fits a token type
             let valid_syntax = syntaxic_branch.every(function(syntaxic_token){
+                
                 let token = local_str_array[0] ? syntaxic_token(local_str_array[0].toLowerCase()) : null;
                 if(token){
+                    //If the word fits a token, then we push the token and remove the word from the sentence
                     local_tokens.push(token);
                     local_str_array.splice(0,1);
                     return true;
                 }
                 return false;
             });
+
+            //The sentence if fully parsed only when all the token has been found for a branch and there are no word remaining in the sentence
             if(valid_syntax && local_str_array.length === 0){
                 tokens = local_tokens;
                 return true;
@@ -81,6 +94,7 @@ class Parser {
             return false;
         });
         if(!success){
+            //If no branch of the syntaxic tree was compatible, the parsing couldn't be done
             throw new Error("ParsingError");
         }
         return tokens;

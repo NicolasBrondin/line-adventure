@@ -53,7 +53,7 @@ For now the project only includes a basic parser with test sentences running and
 <!-- CONTACT -->
 ## Contact
 
-Nicolas Brondin-Bernard - [@twitter_handle](https://twitter.com/NicolasBrondin) - nicolas@brondin.com
+Nicolas Brondin-Bernard - [Nicolas Brondin-Bernard](https://twitter.com/NicolasBrondin) - nicolas@brondin.com
 
 Project Link: [https://github.com/NicolasBrondin/line-adventure](https://github.com/NicolasBrondin/line-adventure)
 
