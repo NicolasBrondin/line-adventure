@@ -1,4 +1,4 @@
-const Parser = require('./Parser.js');
+/*const Parser = require('./Parser.js');
 let parser = new Parser();
 
 const sentences = [
@@ -23,4 +23,7 @@ sentences.forEach((sentence)=>{
     } catch(e){
         console.error("Invalid syntax for sentence: ",sentence);
     }
-});
+});*/
+
+const Game = require('./Game');
+new Game();
